@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" id="1">    
+<button id="2">submit</button>
+<div id="3"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script>
+const i = document.getElementById("1");   
+const b = document.getElementById("2");   
+const d = document.getElementById("3");   
+
+const socket = io();
+
+socket.on("ivv", (category) => {
+    d.textContent = category;
+});
+
+b.addEventListener("click", () => {
+    const iv = i.value;
+    socket.emit("iv", iv);
+});
+</script>
+</body>
+</html>
