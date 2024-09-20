@@ -62,7 +62,7 @@ const insultes = [
     ];
     
 function categorizeInsput(input) {
-    const tokens = input.tolowercase()
+    const tokens = input.toLowerCase();
     //const tokens = tokenizer.tokenize(input.toLowerCase());
         for (let token of tokens) {
             if (insultes.includes(token.toLowerCase())) {
