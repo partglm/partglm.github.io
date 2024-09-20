@@ -14,7 +14,7 @@ const i = document.getElementById("1");
 const b = document.getElementById("2");   
 const d = document.getElementById("3");   
 
-const tokenizer = new natural.WordTokenizer();
+const tokenizer = 'z'//new natural.WordTokenizer();
 
 const insultes = [
     'idiot', 'imbecile', 'cretin', "Conard", "Encule", "Salope","pnj mal code","Il pedale dans la choucroute.",
@@ -62,7 +62,8 @@ const insultes = [
     ];
     
 function categorizeInsput(input) {
-    const tokens = tokenizer.tokenize(input.toLowerCase());
+    const tokens = input.tolowercase()
+    //const tokens = tokenizer.tokenize(input.toLowerCase());
         for (let token of tokens) {
             if (insultes.includes(token.toLowerCase())) {
                   return 'Insulte';
