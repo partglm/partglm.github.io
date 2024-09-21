@@ -9,13 +9,12 @@
 <input type="text" id="1" placeholder="tapez votre mot ici">    
 <button id="2">submit</button>
 <div id="3"></div>
+<script src="https://unpkg.com/compromise"></script>
 <script>
 const i = document.getElementById("1");   
 const b = document.getElementById("2");   
 const d = document.getElementById("3");   
-
-const tokenizer = new natural.WordTokenizer();
-
+//test
 const insultes = [
     'idiot', 'imbecile', 'cretin', "Conard", "Encule", "Salope","pnj mal code","Il pedale dans la choucroute.",
     "Connard", "Putain", "Idiot", "Bâtard", "Fils de pute", "FDP", "Grosse merde", "Enfoire", "Cretin", "Poufiasse",
@@ -62,7 +61,7 @@ const insultes = [
     ];
     
 function categorizeInsput(input) {
-    const tokens = tokenizer.tokenize(input.toLowerCase());
+    let tokens = nlp(input).terms().out('array');
         for (let token of tokens) {
             if (insultes.includes(token.toLowerCase())) {
                   return 'Insulte';
