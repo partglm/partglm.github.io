@@ -61,13 +61,13 @@ const insultes = [
     ];
     
 function categorizeInsput(input) {
-    let tokens = nlp(input).terms().out('array');
-        for (let token of tokens) {
-            if (insultes.includes(token.toLowerCase())) {
-                  return 'Insulte';
-            }
+     let doc = nlp(input.toLowerCase());
+     for (let insulte of insultes) {
+        if (doc.has(insulte)) {
+             return 'Insulte';
         }
-   return 'bon';
+     }
+    return 'bon';
 }
 
 //ssh utilisateur@adresse_ip_distance "d:\Pierre\EnchantUI\Server-Files-0.2.60\startserver.bat"
