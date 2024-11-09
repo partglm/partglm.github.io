@@ -16,8 +16,8 @@ const b = document.getElementById("2");
 const d = document.getElementById("3");   
 //test
 const insultes = [
-    'idiot', 'imbecile', 'cretin', "Conard", "Encule", "Salope","pnj mal code","Il pedale dans la choucroute.",
-    "Connard", "Putain", "Idiot", "Bâtard", "Fils de pute", "FDP", "Grosse merde", "Enfoire", "Cretin", "Poufiasse",
+    'idiot', 'imbecile', 'cretin', "Conard", "Encule", "Salope","pnj mal code","Il pedale dans la choucroute.","nazi","hitler",
+    "Connard", "Putain", "Idiot", "Bâtard", "Fils de pute", "FDP", "Grosse merde", "Enfoire", "Cretin", "Poufiasse","nazisme",
     "vil faquin", "Salaud", "Connasse", "Pede", "Tare", "Debile", "Tete de noeud", "desembouteille des alpages", "Naze",
     "Stupide", "Imbecile", "Incompetent", "Nul", "Pathetique", "maraud", "enfoire", "Minable", "Ignorant", "Cretin",
     "Debile", "Pitoyable", "Fatiguant", "foutriquet", "Irritant", "Inutile", "Lamentable", "Miserable", "Abject","grognasse",
@@ -51,7 +51,7 @@ const insultes = [
     "irritant","inutile","abject","detestable","repugnant",'merde', 'con', 'putain', 'salaud',"fdp", "debile","cretin", "cretine",
     "aberrant","idiot","idiote","mediocre","faineant", "tu n'est pas la chips la plus croustillante du paquet","enfoire","enfoiree",
     "pas la lumière la plus brillante","pas le couteau le plus aiguise du tiroir", "enfoire", "suceuse de prof","petasse","ferme la",
-    "feignant","grossier","arrogant","insolent","malhonnete","Tu n'es pas la lumière la plus brillante de l'arbre de Noël.",
+    "feignant","grossier","arrogant","insolent","malhonnete","Tu n'es pas la lumière la plus brillante de l'arbre de Noël.","vas te faire",
     "Il lui manque une case.","Il n'a pas invente l'eau tiède.","espèce de pute", "encule", "encule", "ta geule","trou du cul",
     "Elle n'a pas toute sa tete.","Tu n'es pas la moitie d'un imbecile.","tu n'est pas le marteau le plus efficace","sale folle",
     "Il est ne fatigue.","Il ne fait pas la queue du chat.", "pute", "sale arabe","sale chien", "espece de robot","je vais te violé",
@@ -61,13 +61,13 @@ const insultes = [
     ];
     
 function categorizeInsput(input) {
-    let tokens = nlp(input).terms().out('array');
-        for (let token of tokens) {
-            if (insultes.includes(token.toLowerCase())) {
-                  return 'Insulte';
-            }
+     let doc = nlp(input.toLowerCase());
+     for (let insulte of insultes) {
+        if (doc.has(insulte)) {
+             return 'Insulte';
         }
-   return 'bon';
+     }
+    return 'bon';
 }
 
 //ssh utilisateur@adresse_ip_distance "d:\Pierre\EnchantUI\Server-Files-0.2.60\startserver.bat"
